@@ -11,6 +11,7 @@
     "NotatnikUzytkownikow": {
       "commandName": "Project",
       "launchBrowser": true,
+      "launchUrl": "swagger",
       "applicationUrl": "https://localhost:7165;http://localhost:5045",
       "environmentVariables": {
         "ASPNETCORE_ENVIRONMENT": "Development",
