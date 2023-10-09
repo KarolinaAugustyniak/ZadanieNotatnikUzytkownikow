@@ -21,8 +21,8 @@ namespace NotatnikUzytkownikow.Models
         [Required]
         public string Gender { get; set; }
 
-        public string PhoneNumber { get; set; }
-        public string Position { get; set; }
+        public string? PhoneNumber { get; set; }
+        public string? Position { get; set; }
 
         [Range(34, 50, ErrorMessage = "Numer buta powinien mieć wartość od 34 do 50.")]
         public int? ShoeNumber { get; set; }
