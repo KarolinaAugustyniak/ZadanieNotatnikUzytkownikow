@@ -9,10 +9,12 @@ namespace NotatnikUzytkownikow.Models
 
         [Required]
         [MaxLength(50)]
+        [RegularExpression(@"^[a-zA-Z]+$", ErrorMessage = "Imię może zawierać jedynie litery")]
         public string FirstName { get; set; }
 
         [Required]
         [MaxLength(150)]
+        [RegularExpression(@"^[a-zA-Z]+$", ErrorMessage = "Imię może zawierać jedynie litery")]
         public string LastName { get; set; }
 
         [Required]
