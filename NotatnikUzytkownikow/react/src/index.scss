@@ -1,3 +1,5 @@
+$primary: #6288bf;
+
 :root {
   font-family: Inter, system-ui, Avenir, Helvetica, Arial, sans-serif;
 }
@@ -33,13 +35,13 @@ h1 {
 }
 
 .btn {
-  border-radius: 8px;
+  border-radius: 3px;
   border: 1px solid transparent;
   padding: 0.6em 1.2em;
   font-size: 1em;
   font-weight: 500;
   font-family: inherit;
-  background-color: #2a7bfe;
+  background-color: $primary;
   border: none;
   color: white;
   cursor: pointer;
@@ -85,7 +87,11 @@ th {
 }
 
 th {
-  border: 1px solid #919191;
+  font-weight: 500;
+}
+
+thead tr {
+  background: #d3def5;
 }
 
 //loading
@@ -115,4 +121,95 @@ th {
   100% {
     transform: rotate(360deg);
   }
+}
+
+.popup {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+
+  &__overlay {
+    background-color: rgba(0, 0, 0, 0.135);
+    width: 100%;
+    height: 100%;
+    position: absolute;
+  }
+
+  &__wrapper {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    gap: 16px;
+  }
+
+  &__close {
+    background-color: #333;
+    font-weight: 700;
+    border: none;
+    color: white;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    width: 30px;
+    height: 30px;
+    border-radius: 5px;
+    cursor: pointer;
+  }
+
+  &__title {
+    font-size: 1.2em;
+  }
+
+  &__inner {
+    background-color: white;
+    padding: 30px;
+    max-width: 600px;
+    width: 100%;
+    border-radius: 5px;
+    position: relative;
+    z-index: 5;
+  }
+
+  &__form {
+    display: flex;
+    flex-direction: column;
+    gap: 20px;
+    margin-top: 30px;
+    max-width: 300px;
+    margin-left: auto;
+    margin-right: auto;
+  }
+
+  &__btn {
+    margin-left: auto;
+    margin-right: auto;
+    max-width: 200px;
+    width: 100%;
+    margin-top: 30px;
+  }
+}
+
+input,
+select {
+  padding: 8px 16px;
+  border: 1px solid #ddd;
+  border-radius: 5px;
+}
+
+label {
+  display: flex;
+  flex-direction: column;
+  gap: 4px;
+}
+
+.buttons {
+  display: flex;
+  gap: 20px;
+  margin-bottom: 30px;
+  justify-content: center;
 }
