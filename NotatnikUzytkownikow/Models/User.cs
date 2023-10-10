@@ -21,6 +21,7 @@ namespace NotatnikUzytkownikow.Models
         public DateTime BirthDate { get; set; }
 
         [Required]
+        [RegularExpression("^(Kobieta|Mężczyzna)$", ErrorMessage = "Dopuszczalne wartości to 'Kobieta' lub 'Mężczyzna'.")]
         public string Gender { get; set; }
 
         public string? PhoneNumber { get; set; }
@@ -28,5 +29,6 @@ namespace NotatnikUzytkownikow.Models
 
         [Range(34, 50, ErrorMessage = "Numer buta powinien mieć wartość od 34 do 50.")]
         public int? ShoeNumber { get; set; }
+
     }
 }
