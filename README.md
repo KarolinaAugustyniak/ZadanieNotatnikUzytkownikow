@@ -13,10 +13,12 @@ npm install
 npm run dev
 ```
 
+## Database
+
 Setup database (bak file is located in Database folder).
 Change DefaultConnection in appsettings.json
 
-## App Screenshots
+# App Screenshots
 
 ![Screenshot_1](https://github.com/KarolinaAugustyniak/ZadanieNotatnikUzytkownikow/assets/88251386/720f308e-56f3-4659-8089-21b8c53e173a)
 
