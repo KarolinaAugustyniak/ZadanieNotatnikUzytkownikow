@@ -2,6 +2,7 @@
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.EntityFrameworkCore;
 using NotatnikUzytkownikow.Models;
+using System.ComponentModel.DataAnnotations;
 
 namespace NotatnikUzytkownikow.Controllers
 {
@@ -42,6 +43,8 @@ namespace NotatnikUzytkownikow.Controllers
         [HttpPost]
         public async Task<ActionResult<User>> PostUser(User user)
         {
+            if (!ValidateBirthDate(user.BirthDate)) return BadRequest("Nieprawidłowa data urodzenia");
+
             _context.Users.Add(user);
             await _context.SaveChangesAsync();
 
@@ -52,10 +55,9 @@ namespace NotatnikUzytkownikow.Controllers
         [HttpPut("{id}")]
         public async Task<IActionResult> PutUser(int id, User user)
         {
-            if (id != user.Id)
-            {
-                return BadRequest();
-            }
+            if (id != user.Id) return BadRequest();
+
+            if(!ValidateBirthDate(user.BirthDate)) return BadRequest("Nieprawidłowa data urodzenia");
 
             _context.Entry(user).State = EntityState.Modified;
 
@@ -93,6 +95,12 @@ namespace NotatnikUzytkownikow.Controllers
             await _context.SaveChangesAsync();
 
             return NoContent();
+        }
+
+        [ApiExplorerSettings(IgnoreApi = true)]
+        public bool ValidateBirthDate(DateTime date)
+        {
+            return date <= DateTime.Now;
         }
 
     }

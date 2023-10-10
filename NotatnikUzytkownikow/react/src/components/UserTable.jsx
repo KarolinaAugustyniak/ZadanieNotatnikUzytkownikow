@@ -27,7 +27,7 @@ export default function UserTable({ users, setUsers }) {
   };
 
   return (
-    <>
+    <div className="user-table">
       <table>
         <thead>
           <tr>
@@ -44,8 +44,12 @@ export default function UserTable({ users, setUsers }) {
         <tbody>
           {users.map((user) => (
             <tr key={user.id}>
-              <td onClick={() => handleEdit(user)}>{user.firstName}</td>
-              <td onClick={() => handleEdit(user)}>{user.lastName}</td>
+              <td onClick={() => handleEdit(user)} className="clickable">
+                {user.firstName}
+              </td>
+              <td onClick={() => handleEdit(user)} className="clickable">
+                {user.lastName}
+              </td>
               <td>{new Date(user.birthDate).toLocaleDateString()}</td>
               <td>{user.gender}</td>
               <td>{user.phoneNumber || "-"}</td>
@@ -67,6 +71,6 @@ export default function UserTable({ users, setUsers }) {
           onClose={togglePopup}
         />
       )}
-    </>
+    </div>
   );
 }

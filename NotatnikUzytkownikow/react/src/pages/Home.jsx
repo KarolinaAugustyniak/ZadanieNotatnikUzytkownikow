@@ -2,6 +2,7 @@ import { useEffect, useState } from "react";
 import UserTable from "../components/UserTable";
 import axios from "axios";
 import Popup from "../components/Popup";
+import GenerateBtn from "../components/GenerateBtn";
 
 export default function Home() {
   const [users, setUsers] = useState([]);
@@ -29,8 +30,6 @@ export default function Home() {
     setShowPopup((prev) => !prev);
   };
 
-  const handleGenerate = () => {};
-
   return (
     <div className="container">
       <h1>Notatnik użytkowników</h1>
@@ -38,9 +37,7 @@ export default function Home() {
         <button onClick={toggleAddUserPopup} className="btn">
           Dodaj użytkownika
         </button>
-        <button onClick={handleGenerate} className="btn">
-          Generuj raport
-        </button>
+        <GenerateBtn />
       </div>
       {loading ? (
         <div className="lds-dual-ring"></div>
